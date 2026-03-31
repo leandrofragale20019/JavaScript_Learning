@@ -26,8 +26,15 @@ A counter that performs calculations and dynamically changes UI colors based on 
 A game where the computer thinks of a random number, and the player has to guess it.
 - **Key Learning:** Generating random numbers with Math.random(), reading user input using .valueAsNumber, and converting data types.
 - **The Challenge:** - ID vs. Class: Learning that getElementById strictly requires an ID, not just a CSS class, to trigger a function.
-Dynamic State: Understanding that the "Secret Number" needs to be reset or updated after a win to keep the game playable without refreshing the page.
-Input Handling: Realizing that an HTML element is just a "container" and I need to specifically target its .value to get the user's guess.
+- **Dynamic State:** Understanding that the "Secret Number" needs to be reset or updated after a win to keep the game playable without refreshing the page.
+- **Input Handling:** Realizing that an HTML element is just a "container" and I need to specifically target its .value to get the user's guess.
+
+#### 04 | Persistent To-Do List
+A task manager that remembers your entries even after a page reload.
+- **Key Learning:** The "Source of Truth" principle. I learned that the UI (HTML) should only be a reflection of the Data (Array). If the data changes, the UI follows.
+- **Technical Deep Dive:** * JSON Handling: Using JSON.stringify and JSON.parse to bypass LocalStorage's string-only limitation.
+- **Re-rendering:** Instead of manipulating single elements, I built a draw() function that clears and rebuilds the list to keep it perfectly in sync with the data.
+- **The Challenge:** Understanding why we need to clear the list (innerHTML = "") before redrawing – otherwise, every update would duplicate the entire list!
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
 
@@ -49,6 +56,7 @@ Input Handling: Realizing that an HTML element is just a "container" and I need 
 - [x] Project 01: Background Color Switcher
 - [x] Project 02: Logic Counter (Positive/Negative color states)
 - [x] Project 03: Guess the Number Game (Handling Inputs & `Math.random`)
-- [ ] **Next:** Todo-List with LocalStorage persistence
+- [x] Project 04: Todo-List with LocalStorage persistence
+- [ ] **Next :** Mood Tracker first step into Data Structures
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
