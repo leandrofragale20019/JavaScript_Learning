@@ -43,6 +43,16 @@ A personal mood diary that records your emotional state with a precise timestamp
     - **Template Literals:** Using backticks (`` ` ``) and `${}` to create dynamic HTML strings that cleanly inject object properties into the UI.
 - **The Challenge:** - **Variable Scope:** Understanding that a variable created inside a click function is "private" and not accessible by the display function unless passed through the array.
     - **Data Mapping:** Learning how to access specific properties within an object inside a `.forEach()` loop (e.g., `item.stimmung`) instead of just treating the whole item as a string.
+ 
+#### 06 | Pokémon API Connection
+A project that connects to an external server to fetch real-time data from the **PokéAPI**. This marks my first step into the world of asynchronous programming and global data access.
+- **Key Learning:** Using the **`fetch()`** API to make network requests. I learned how to handle **Promises** using `.then()` and how to transform a raw server response into a readable JSON object.
+- **Technical Deep Dive:**
+    - **Asynchronous Flow:** Understanding that fetching data from the internet takes time and that JavaScript uses "Promises" to manage data once it arrives from the server.
+    - **DOM Mounting:** Using the `DOMContentLoaded` event to ensure the script only starts once the HTML structure is fully ready.
+- **The Challenge:**
+    - **Data Navigation:** Learning how to dig through nested API objects (like `data.results`) to find the exact information (the Pokémon names) I want to display.
+    - **JSON Parsing:** Realizing that a server response isn't immediately an array or object, but must first be "unlocked" with the `.json()` command.
 
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
@@ -67,6 +77,6 @@ A personal mood diary that records your emotional state with a precise timestamp
 - [x] Project 03: Guess the Number Game (Handling Inputs & `Math.random`)
 - [x] Project 04: Todo-List with LocalStorage persistence
 - [x] Project 05: Mood Tracker first step into Data Structures
-- [ ] **Next :** Rock, Paper, Scissors 
+- [x] Project 06: API Connection
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
