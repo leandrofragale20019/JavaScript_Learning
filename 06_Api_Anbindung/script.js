@@ -22,19 +22,23 @@ const content = document.getElementById("content")
 */
 
 searchbtn.onclick = function() {
-    const name = input.value.toLocaleLowerCase();
-
+    const name = input.value.toLowerCase();
     const finalurl = baseurl + name;
 
     fetch(finalurl)
     .then(r => r.json())
     .then(data => {
-        content.innerHTML = "";
-        
-            content.innerHTML = 
-            `<h3>${data.name}</h3>
-            <img src="${data.sprites.front_default}">
-            <p>${data.game_index}</p>
+        content.innerHTML = `
+            <div class="pokemon-card">
+                <h3>${data.name}</h3>
+                <img src="${data.sprites.front_default}">
+                <div class="info-text">
+                    <strong>Nummer:</strong> #${data.id}<br>
+                    <strong>Typ:</strong> ${data.types[0].type.name}<br>
+                    <strong>Gewicht:</strong> ${data.weight / 10} kg<br>
+                    <strong>Grösse:</strong> ${data.height / 10} m
+                </div>
+            </div>
         `;
-        })
-    }
+    })
+}
