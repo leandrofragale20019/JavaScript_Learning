@@ -36,6 +36,15 @@ A task manager that remembers your entries even after a page reload.
 - **Re-rendering:** Instead of manipulating single elements, I built a draw() function that clears and rebuilds the list to keep it perfectly in sync with the data.
 - **The Challenge:** Understanding why we need to clear the list (innerHTML = "") before redrawing – otherwise, every update would duplicate the entire list!
 
+#### 05 | Advanced Mood Tracker
+A personal mood diary that records your emotional state with a precise timestamp. This project marks my transition from simple strings to complex data objects.
+- **Key Learning:** Working with **Data Objects** (`{ mood: "😊", time: "14:30" }`) to store multiple pieces of information in a single entry. I also learned to use the `Date()` object to capture real-time timestamps.
+- **Technical Deep Dive:** - **Array Manipulation:** Switching from `.push()` to **`.unshift()`** to ensure the newest mood entry always appears at the top of the list.
+    - **Template Literals:** Using backticks (`` ` ``) and `${}` to create dynamic HTML strings that cleanly inject object properties into the UI.
+- **The Challenge:** - **Variable Scope:** Understanding that a variable created inside a click function is "private" and not accessible by the display function unless passed through the array.
+    - **Data Mapping:** Learning how to access specific properties within an object inside a `.forEach()` loop (e.g., `item.stimmung`) instead of just treating the whole item as a string.
+
+
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
 
 ### Tech Stack & Tools
@@ -57,6 +66,7 @@ A task manager that remembers your entries even after a page reload.
 - [x] Project 02: Logic Counter (Positive/Negative color states)
 - [x] Project 03: Guess the Number Game (Handling Inputs & `Math.random`)
 - [x] Project 04: Todo-List with LocalStorage persistence
-- [ ] **Next :** Mood Tracker first step into Data Structures
+- [x] Project 05: Mood Tracker first step into Data Structures
+- [ ] **Next :** Rock, Paper, Scissors 
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
