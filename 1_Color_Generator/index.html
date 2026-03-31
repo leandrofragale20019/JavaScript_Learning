@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
     <title>Color changing</title>
 </head>
 <body>
@@ -17,22 +18,5 @@
       </button>
 
     <p>Color: <span id="colorName"></span></p>
-
-    <script>
-
-       const btn = document.getElementById("colorbtn")
-       const colorDisplay = document.getElementById("colorName")
-
-       btn.onclick = function () {
-
-        let neueFarbe = "#" + Math.floor(Math.random()*16777215).toString(16);
-            
-        document.body.style.backgroundColor = neueFarbe;
-        colorDisplay.innerHTML = neueFarbe;
-        }
-
-       
-
-    </script>
 </body>
 </html>
