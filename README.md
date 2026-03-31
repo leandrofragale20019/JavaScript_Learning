@@ -22,6 +22,13 @@ A counter that performs calculations and dynamically changes UI colors based on 
 - **Key Learning:** State management (variables), `if/else` logic, and function encapsulation (DRY principle).
 - **The Challenge:** Overcoming the "Infinite Loop" trap. I learned that in web dev, we react to **Events** instead of using `while` loops to wait for user input.
 
+#### 03 | Number Guessing Game 
+A game where the computer thinks of a random number, and the player has to guess it.
+- **Key Learning:** Generating random numbers with Math.random(), reading user input using .valueAsNumber, and converting data types.
+- **The Challenge:** - ID vs. Class: Learning that getElementById strictly requires an ID, not just a CSS class, to trigger a function.
+Dynamic State: Understanding that the "Secret Number" needs to be reset or updated after a win to keep the game playable without refreshing the page.
+Input Handling: Realizing that an HTML element is just a "container" and I need to specifically target its .value to get the user's guess.
+
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
 
 ### Tech Stack & Tools
@@ -41,7 +48,7 @@ A counter that performs calculations and dynamically changes UI colors based on 
 
 - [x] Project 01: Background Color Switcher
 - [x] Project 02: Logic Counter (Positive/Negative color states)
-- [ ] **Next:** Guess the Number Game (Handling Inputs & `Math.random`)
-- [ ] Todo-List with LocalStorage persistence
+- [x] Project 03: Guess the Number Game (Handling Inputs & `Math.random`)
+- [ ] **Next:** Todo-List with LocalStorage persistence
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
