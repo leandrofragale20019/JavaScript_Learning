@@ -1,5 +1,5 @@
 const btn = document.getElementById("colorbtn")
-       const colorDisplay = document.getElementById("colorName")
+const colorDisplay = document.getElementById("colorName")
 
        btn.onclick = function () {
 
