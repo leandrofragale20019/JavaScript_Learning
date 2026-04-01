@@ -4,14 +4,20 @@
 
 </div>
 
-### About the Project
+## About the Project
 
 I am starting my journey into the world of JavaScript. This repository serves as a documentation of my mini-projects, where I learn how to bring static websites to life with logic and interaction.
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
 
-### Completed Projects
+## Projects:
 
+
+### Completed Frontend Projects
+
+<details>
+<summary>Click here to see the Frontend-Projects</summary>
+    
 #### 01 | Color Changer 
 A tool that changes the background color of the page upon clicking a button.
 - **Key Learning:** DOM manipulation and Event Listeners (`onclick`).
@@ -63,8 +69,20 @@ A real-time weather application that fetches global weather data using the **Ope
 - **The Challenge:**
     - **Unit Conversion:** Using the `units=metric` parameter to ensure the API returns Celsius instead of Kelvin.
     - **JSON Navigation:** Understanding that the weather description is stored inside an array (using `[0]`), while temperature is a direct property of the `main` object.
+</details>
 
 
+### Completed Backend Projects
+
+<details>
+<summary>Click here to see the Backend-Projects</summary>
+
+#### 01 | My First Express Server
+  The beginning of my backend journey. I created a local server that can handle web requests.
+  - **Technology:** Node.js with the **Express** framework.
+  - **Key Learning:** - **Routing:** Setting up the first "Home" route (`/`) to send a response to the client.
+    - **Port Listening:** Understanding how a server "listens" on a specific port (3000) to wait for incoming traffic.
+    </details>
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
 
 ### Tech Stack & Tools
@@ -80,7 +98,9 @@ A real-time weather application that fetches global weather data using the **Ope
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
 
-### Roadmap
+## Roadmap
+
+### Frontend
 
 - [x] Project 01: Background Color Switcher
 - [x] Project 02: Logic Counter (Positive/Negative color states)
@@ -90,4 +110,7 @@ A real-time weather application that fetches global weather data using the **Ope
 - [x] Project 06: API Connection (Pokedex)
 - [x] Project 07: Weather App
 
+
+### Backend
+- [x] Project 01: First Backend with Express
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
