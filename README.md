@@ -87,7 +87,7 @@ A real-time weather application that fetches global weather data using the **Ope
 - [x] Project 03: Guess the Number Game (Handling Inputs & `Math.random`)
 - [x] Project 04: Todo-List with LocalStorage persistence
 - [x] Project 05: Mood Tracker first step into Data Structures
-- [x] Project 06: API Connection
+- [x] Project 06: API Connection (Pokedex)
 - [x] Project 07: Weather App
 
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:9CA3AF,100:0D1117&height=2&section=header"/>
