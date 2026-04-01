@@ -5,9 +5,11 @@ const input = document.getElementById("input")
 const searchbtn = document.getElementById("searchbtn")
 const content = document.getElementById("content")
 
-//addEventListener("DOMContentLoaded", load)
 
-/*function load() {
+/*
+addEventListener("DOMContentLoaded", load)
+
+function load() {
     fetch(url) 
     .then(r => r.json())
     .then(data => {
