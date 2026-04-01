@@ -22,7 +22,7 @@ searchbtn.onclick = function() {
         Min Temperature : ${data.main.temp_min}<br>
         Feels Like : ${data.main.feels_like}<br>
         Status : ${data.weather[0].description}<br>
-        Visability : ${data.visibility} m <br>
+        Visibility : ${data.visibility} m <br>
         `
     })
 }
