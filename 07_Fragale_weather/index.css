@@ -1,8 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500&display=swap');
+
+:root {
+  --glass:        rgba(255,255,255,0.15);
+  --glass-hover:  rgba(255,255,255,0.24);
+  --glass-border: rgba(255,255,255,0.40);
+  --glass-shine:  rgba(255,255,255,0.55);
+  --txt:          rgba(255,255,255,0.95);
+  --txt-sub:      rgba(255,255,255,0.55);
+  --blur:         blur(36px) saturate(180%) brightness(1.05);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── ANIMIERTER HINTERGRUND ── */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+  min-height: 100vh;
+  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--txt);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px 100px;
+  overflow-x: hidden;
+  position: relative;
+  background: #0d5a9e;
+  animation: skyShift 18s ease-in-out infinite alternate;
+}
+
+@keyframes skyShift {
+  0%   { background: #0c4a80; }
+  25%  { background: #1470bb; }
+  50%  { background: #1a8fd4; }
+  75%  { background: #0e6aab; }
+  100% { background: #0c4a80; }
+}
+
+/* Orb 1 — oben rechts */
+body::before {
+  content: '';
+  position: fixed;
+  width: 70vw;
+  height: 70vw;
+  max-width: 700px;
+  max-height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100,200,255,0.38) 0%, transparent 68%);
+  top: -20%;
+  right: -15%;
+  pointer-events: none;
+  animation: orb1 14s ease-in-out infinite alternate;
+}
+
+/* Orb 2 — unten links */
+body::after {
+  content: '';
+  position: fixed;
+  width: 60vw;
+  height: 60vw;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(20,100,200,0.32) 0%, transparent 68%);
+  bottom: -18%;
+  left: -12%;
+  pointer-events: none;
+  animation: orb2 18s ease-in-out infinite alternate;
+}
+
+@keyframes orb1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-40px, 50px) scale(1.12); }
+}
+@keyframes orb2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(50px, -40px) scale(1.1); }
+}
+
+/* Wolken-Schicht via weiteres Pseudo-Element auf h1 */
+body > * { position: relative; z-index: 1; }
+
+/* ── SCHWEBENDE WOLKEN (CSS-only) ── */
+/* Wir nutzen zwei extra-divs die immer im DOM sind, versteckt hinter dem Inhalt */
+/* Da wir kein extra-HTML wollen, bauen wir Wolken über box-shadow auf einem hidden span */
+
+/* ── WOLKEN ANIMATION über h1::before / ::after ── */
+h1::before {
+  content: '';
+  position: fixed;
+  top: 8%;
+  left: -260px;
+  width: 260px;
+  height: 90px;
+  background: radial-gradient(ellipse 130px 55px at 50% 55%, rgba(255,255,255,0.55) 0%, transparent 80%),
+              radial-gradient(ellipse 80px 45px at 30% 40%, rgba(255,255,255,0.45) 0%, transparent 80%),
+              radial-gradient(ellipse 80px 45px at 70% 40%, rgba(255,255,255,0.45) 0%, transparent 80%);
+  pointer-events: none;
+  animation: cloudDrift1 32s linear infinite;
+  z-index: 0;
+}
+
+h1::after {
+  content: '';
+  position: fixed;
+  top: 22%;
+  left: -180px;
+  width: 180px;
+  height: 65px;
+  background: radial-gradient(ellipse 90px 40px at 50% 55%, rgba(255,255,255,0.40) 0%, transparent 80%),
+              radial-gradient(ellipse 55px 35px at 25% 40%, rgba(255,255,255,0.30) 0%, transparent 80%),
+              radial-gradient(ellipse 55px 35px at 75% 40%, rgba(255,255,255,0.30) 0%, transparent 80%);
+  pointer-events: none;
+  animation: cloudDrift2 48s linear infinite;
+  z-index: 0;
+}
+
+/* 2 weitere Wolken via input::before / ::after */
+#input::before {
+  content: '';
+  position: fixed;
+  top: 55%;
+  left: -220px;
+  width: 220px;
+  height: 75px;
+  background: radial-gradient(ellipse 110px 48px at 50% 55%, rgba(255,255,255,0.28) 0%, transparent 80%),
+              radial-gradient(ellipse 70px 38px at 28% 40%, rgba(255,255,255,0.20) 0%, transparent 80%),
+              radial-gradient(ellipse 70px 38px at 72% 40%, rgba(255,255,255,0.20) 0%, transparent 80%);
+  pointer-events: none;
+  animation: cloudDrift3 38s linear infinite;
+  z-index: 0;
+}
+
+#apikey::before {
+  content: '';
+  position: fixed;
+  top: 72%;
+  left: -300px;
+  width: 300px;
+  height: 100px;
+  background: radial-gradient(ellipse 150px 60px at 50% 55%, rgba(255,255,255,0.22) 0%, transparent 80%),
+              radial-gradient(ellipse 90px 48px at 30% 40%, rgba(255,255,255,0.16) 0%, transparent 80%),
+              radial-gradient(ellipse 90px 48px at 70% 40%, rgba(255,255,255,0.16) 0%, transparent 80%);
+  pointer-events: none;
+  animation: cloudDrift4 55s linear infinite;
+  z-index: 0;
+}
+
+@keyframes cloudDrift1 {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100vw + 300px)); }
+}
+@keyframes cloudDrift2 {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100vw + 220px)); }
+}
+@keyframes cloudDrift3 {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100vw + 260px)); }
+}
+@keyframes cloudDrift4 {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100vw + 340px)); }
+}
+
+/* ── TITEL ── */
+h1 {
+  font-size: clamp(1.8rem, 5.5vw, 3rem);
+  font-weight: 200;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--txt);
+  text-align: center;
+  text-shadow: 0 2px 28px rgba(0,0,0,0.20);
+  animation: fadeDown 0.9s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.65), transparent);
+  margin: 12px auto 0;
+}
+
+/* ── SUCH-BEREICH ── */
+body > div:first-of-type {
+  display: flex;
+  gap: 10px;
+  margin-top: 36px;
+  animation: fadeDown 0.9s cubic-bezier(0.22,1,0.36,1) 0.1s both;
+}
+
+/* ── LIQUID GLASS BASIS ── */
+input[type="text"],
+input[type="password"],
+#searchbtn,
+#content {
+  -webkit-backdrop-filter: var(--blur);
+  backdrop-filter: var(--blur);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+}
+
+/* ── INPUTS ── */
+input[type="text"],
+input[type="password"] {
+  font-family: 'Nunito Sans', -apple-system, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  padding: 14px 20px;
+  border-radius: 14px;
+  color: var(--txt);
+  outline: none;
+  transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+  box-shadow:
+    0 6px 28px rgba(0,0,0,0.14),
+    inset 0 1.5px 0 var(--glass-shine),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+input::placeholder {
+  color: var(--txt-sub);
+  font-weight: 200;
+  letter-spacing: 0.03em;
+}
+
+input:focus {
+  background: var(--glass-hover);
+  border-color: rgba(255,255,255,0.65);
+  box-shadow:
+    0 0 0 4px rgba(255,255,255,0.10),
+    0 10px 40px rgba(0,0,0,0.18),
+    inset 0 1.5px 0 var(--glass-shine),
+    inset 0 -1px 0 rgba(0,0,0,0.06);
+  transform: translateY(-1px);
+}
+
+#input  { width: 220px; }
+#apikey {
+  width: 280px;
+  margin-top: 12px;
+  animation: fadeDown 0.9s cubic-bezier(0.22,1,0.36,1) 0.2s both;
+}
+
+/* ── BUTTON ── */
+#searchbtn {
+  font-family: 'Nunito Sans', -apple-system, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 14px 26px;
+  border-radius: 14px;
+  color: var(--txt);
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.22,1,0.36,1);
+  box-shadow:
+    0 6px 28px rgba(0,0,0,0.15),
+    inset 0 1.5px 0 var(--glass-shine),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer */
+#searchbtn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.20), transparent);
+  transition: left 0.5s ease;
+}
+
+#searchbtn:hover {
+  background: var(--glass-hover);
+  border-color: rgba(255,255,255,0.72);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 14px 44px rgba(0,0,0,0.20),
+    inset 0 1.5px 0 var(--glass-shine),
+    inset 0 -1px 0 rgba(0,0,0,0.05);
+}
+
+#searchbtn:hover::after { left: 140%; }
+
+#searchbtn:active {
+  transform: translateY(0) scale(0.97);
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── ERGEBNIS-KARTE ── */
+#content {
+  margin-top: 32px;
+  width: min(440px, 94vw);
+  padding: 36px 32px 30px;
+  border-radius: 30px;
+  box-shadow:
+    0 24px 80px rgba(0,0,0,0.24),
+    inset 0 2px 0 var(--glass-shine),
+    inset 0 -1.5px 0 rgba(0,0,0,0.12),
+    inset 1.5px 0 0 rgba(255,255,255,0.18),
+    inset -1.5px 0 0 rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 2.3;
+
+  /* Standardmässig unsichtbar */
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Sobald Inhalt vorhanden → automatisch einblenden, nur CSS */
+#content:not(:empty) {
+  opacity: 1;
+  pointer-events: auto;
+  animation: cardPop 0.65s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* Glanz oben */
+#content::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 100%);
+  border-radius: 30px 30px 0 0;
+  pointer-events: none;
+}
+
+/* Tiefe unten */
+#content::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 32%;
+  background: linear-gradient(0deg, rgba(0,0,0,0.09) 0%, transparent 100%);
+  border-radius: 0 0 30px 30px;
+  pointer-events: none;
+}
+
+#content h2 {
+  font-size: 2rem;
+  font-weight: 200;
+  letter-spacing: 0.06em;
+  color: var(--txt);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  line-height: 1.2;
+  margin-bottom: 3px;
+  position: relative;
+  z-index: 1;
+}
+
+#content h4 {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--txt-sub);
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+#content h4::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.28), transparent 70%);
+  margin-top: 14px;
+}
+
+#content > *:not(h2):not(h4) {
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding: 2px 0;
+  color: rgba(255,255,255,0.82);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  letter-spacing: 0.02em;
+}
+
+
+
+/* ── ANIMATIONEN ── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardPop {
+  from { opacity: 0; transform: translateY(28px) scale(0.95); filter: blur(8px); }
+  to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 3px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  body > div:first-of-type { flex-direction: column; width: 94vw; }
+  #input, #apikey { width: 100%; }
+  #content { padding: 26px 18px; }
 }
